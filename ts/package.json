@@ -1,0 +1,23 @@
+{
+    "name": "step-racingcar",
+    "version": "1.0.0",
+    "description": "자동차 경주 리팩토링 & OOP 훈련장",
+    "scripts": {
+        "test": "jest",
+        "test:step1": "jest --testPathPattern=step1",
+        "test:step2": "jest --testPathPattern=step2",
+        "test:step3": "jest --testPathPattern=step3",
+        "test:step4": "jest --testPathPattern=step4",
+        "test:step5": "jest --testPathPattern=step5",
+        "test:step6": "jest --testPathPattern=step6",
+        "test:step7": "jest --testPathPattern=step7"
+    },
+    "type": "commonjs",
+    "devDependencies": {
+        "@types/jest": "^30.0.0",
+        "@types/node": "^25.3.0",
+        "jest": "^30.2.0",
+        "ts-jest": "^29.4.6",
+        "typescript": "^5.9.3"
+    }
+}

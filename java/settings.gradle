@@ -1,0 +1,9 @@
+rootProject.name = 'step-racingcar'
+
+include 'step1-naming'
+include 'step2-early-return'
+include 'step3-method-sep'
+include 'step4-ui-separation'
+include 'step5-value-object'
+include 'step6-first-class-collection'
+include 'step7-strategy-pattern'

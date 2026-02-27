@@ -1,0 +1,13 @@
+# Java
+.gradle/
+build/
+bin/
+out/
+*.class
+.idea/
+
+# TypeScript
+node_modules/
+dist/
+*.js
+!jest.config.js

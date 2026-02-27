@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "target": "es2022",
+        "module": "commonjs",
+        "outDir": "./dist",
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "skipLibCheck": true
+    },
+    "include": [
+        "step1-naming/**/*",
+        "step2-early-return/**/*",
+        "step3-method-sep/**/*",
+        "step4-ui-separation/**/*",
+        "step5-value-object/**/*",
+        "step6-first-class-collection/**/*",
+        "step7-strategy-pattern/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
+}
