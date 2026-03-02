@@ -1,29 +1,28 @@
-export class RawCar {
-    private name: string;
-    private position: number;
+import { CarName } from './carName';
+import { Position } from './position';
 
-    constructor(name: string) {
-        if (!name || name.length === 0) {
-            throw new Error('자동차 이름은 비어있을 수 없습니다.');
-        }
-        if (name.length > 5) {
-            throw new Error('자동차 이름은 5자를 초과할 수 없습니다.');
-        }
+export class Car {
+    private readonly name: CarName;
+    private position: Position;
+
+    private static readonly MOVE_THRESHOLD = 4;
+
+    constructor(name: CarName) {
         this.name = name;
-        this.position = 0;
+        this.position = new Position(0);
     }
 
     public move(randomValue: number): void {
-        if (randomValue >= 4) {
-            this.position++;
+        if (randomValue >= Car.MOVE_THRESHOLD) {
+            this.position = this.position.move();
         }
     }
 
-    public getName(): string {
+    public getName(): CarName {
         return this.name;
     }
 
-    public getPosition(): number {
+    public getPosition(): Position {
         return this.position;
     }
 }
