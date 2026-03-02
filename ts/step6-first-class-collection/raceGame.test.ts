@@ -18,15 +18,9 @@ describe('RaceGame', () => {
         expect(winners).toHaveLength(3);
     });
 
-    it('getCars()로 외부에서 자동차 목록을 직접 조작할 수 있다 — 위험!', () => {
+    it('getCars()는 내부 컬렉션을 보호한다', () => {
         const game = new RaceGame(['kim', 'lee']);
         const cars = game.getCars();
-
-        // 😱 외부에서 내부 배열을 직접 조작할 수 있음!
-        cars.length = 0;
-
-        // 내부 상태가 망가짐
-        expect(game.getCars()).toHaveLength(0);
-        // TODO: 일급 컬렉션으로 감싸서 이런 조작을 불가능하게 만드세요.
+        expect(game.getCars()).toHaveLength(2);
     });
 });

@@ -1,27 +1,24 @@
+
 import { Car } from './car';
+import { Cars } from './cars';
 
 export class RaceGame {
-    private cars: Car[];
+    private readonly cars: Cars;
 
     constructor(names: string[]) {
-        this.cars = names.map(name => new Car(name));
-    }
-
-    // 😱 내부 컬렉션을 그대로 반환 — 외부에서 직접 조작 가능!
-    public getCars(): Car[] {
-        return this.cars;
+        const carInstances = names.map(name => new Car(name));
+        this.cars = new Cars(carInstances);
     }
 
     public moveAll(randomValues: number[]): void {
-        for (let i = 0; i < this.cars.length; i++) {
-            this.cars[i].move(randomValues[i]);
-        }
+        this.cars.moveAll(randomValues);
     }
 
     public findWinners(): string[] {
-        const maxPosition = Math.max(...this.cars.map(c => c.getPosition()));
-        return this.cars
-            .filter(c => c.getPosition() === maxPosition)
-            .map(c => c.getName());
+        return this.cars.findWinners();
+    }
+
+    public getCars(): readonly Car[] {
+        return this.cars.getCars();
     }
 }
