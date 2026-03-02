@@ -1,6 +1,6 @@
-// race.ts
 import { RaceCar } from './raceCar';
-import { MovingStrategy } from './movingSTrategy';
+
+export type MovingStrategy = () => boolean;
 
 export class Race {
     private cars: RaceCar[];
@@ -14,7 +14,7 @@ export class Race {
     public playRound(): void {
         for (const car of this.cars) {
             if (this.movingStrategy()) {
-                car.move(4); 
+                car.move(4);
             }
         }
     }
