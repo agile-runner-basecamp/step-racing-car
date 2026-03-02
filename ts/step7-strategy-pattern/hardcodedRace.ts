@@ -1,17 +1,21 @@
+// race.ts
 import { RaceCar } from './raceCar';
+import { MovingStrategy } from './movingSTrategy';
 
-export class HardcodedRace {
+export class Race {
     private cars: RaceCar[];
+    private movingStrategy: MovingStrategy;
 
-    constructor(names: string[]) {
+    constructor(names: string[], movingStrategy: MovingStrategy) {
         this.cars = names.map(name => new RaceCar(name));
+        this.movingStrategy = movingStrategy;
     }
 
-    // 😱 Math.random()이 메서드 내부에 하드코딩 — 테스트에서 결과를 예측할 수 없음!
     public playRound(): void {
         for (const car of this.cars) {
-            const value = Math.floor(Math.random() * 10);
-            car.move(value);
+            if (this.movingStrategy()) {
+                car.move(4); 
+            }
         }
     }
 
@@ -20,5 +24,9 @@ export class HardcodedRace {
         return this.cars
             .filter(c => c.getPosition() === maxPosition)
             .map(c => c.getName());
+    }
+
+    public getCars(): readonly RaceCar[] {
+        return this.cars;
     }
 }
