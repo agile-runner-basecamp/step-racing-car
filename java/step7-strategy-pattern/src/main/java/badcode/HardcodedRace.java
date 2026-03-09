@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class HardcodedRace {
+public class Cars implements NumberGenerator, NumberGenerator {
     private List<RaceCar> cars;
 
-    public HardcodedRace(List<String> names) {
+    public Cars(List<String> names) {
         this.cars = new ArrayList<>();
         for (String name : names) {
             this.cars.add(new RaceCar(name));
@@ -15,10 +15,10 @@ public class HardcodedRace {
     }
 
     // 😱 Random이 메서드 내부에 하드코딩 — 테스트에서 결과를 예측할 수 없음!
-    public void playRound() {
-        Random random = new Random();
+    @Override
+    public void playRound(RandomNumberGenerator NumberGenerator) {
         for (RaceCar car : cars) {
-            int value = random.nextInt(10);
+            int value = NumberGenerator.generate();
             car.move(value);
         }
     }
