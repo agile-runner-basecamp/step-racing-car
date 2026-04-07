@@ -1,6 +1,6 @@
 package badcode;
 
-public class DeepRaceValidator {
+public class FlatRaceValidator {
     private static final int MAX_NAME_LENGTH = 5;
     private static final int MOVE_THRESHOLD = 4;
     private static final int MAX_RANDOM_VALUE = 9;

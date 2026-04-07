@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class RacerTest {
 
-    @DisplayName("테스트1 -> 기어 값이 4 이상이면 후진한다")
+    @DisplayName("기어 값이 4 이상이면 후진한다")
     @Test
     void moveBackward_whenGearIsGreaterThanOrEqualToFour() {
         // given
@@ -23,7 +23,7 @@ class RacerTest {
         assertThat(racer.isReverse(4)).isTrue();
     }
 
-    @DisplayName("테스트2 -> 기어 값이 4 미만이면 후진하지 않는다")
+    @DisplayName("기어 값이 4 미만이면 후진하지 않는다")
     @Test
     void notMoveBackward_whenGearIsLessThanFour() {
         // given
@@ -35,7 +35,7 @@ class RacerTest {
         assertThat(racer.isReverse(3)).isFalse();
     }
 
-    @DisplayName("테스트3 -> 이름이 5자 이하이면 유효하다")
+    @DisplayName("이름이 5자 이하이면 유효하다")
     @Test
     void isRacerNameValid_whenNameLengthIsFiveOrLess() {
         // given
@@ -48,7 +48,7 @@ class RacerTest {
     }
 
 
-    @DisplayName("테스트4 -> 이름이 5자를 초과하면 유효하지 않다")
+    @DisplayName("이름이 5자를 초과하면 유효하지 않다")
     @Test
     void isRacerNameInvalid_whenNameLengthExceedsFive() {
         // given
@@ -60,7 +60,7 @@ class RacerTest {
         assertThat(racer.isRacerNameValid("abcdef")).isFalse();
     }
 
-    @DisplayName("테스트5 -> 최고 주행 거리에 도달한 레이서 목록을 반환한다")
+    @DisplayName("최고 주행 거리에 도달한 레이서 목록을 반환한다")
     @Test
     void returnFinishedRacers_whenRacersHaveMaxDistance() {
         // given

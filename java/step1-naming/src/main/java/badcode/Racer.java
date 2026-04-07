@@ -6,9 +6,9 @@ import java.util.Map;
 
 public class Racer {
 
-    private final int REVERSE_GEAR_MIN = 4;
-    private final int MAX_RACER_NAME_LENGTH = 5;
-    private final int INITIALIZE_ZERO_DISTANCE = 0;
+    private static final int REVERSE_GEAR_MIN = 4;
+    private static final int MAX_RACER_NAME_LENGTH = 5;
+    private static final int INITIALIZE_ZERO_DISTANCE = 0;
 
     // 후진 여부 (변속기 4단계)
     public boolean isReverse(int gear) {
