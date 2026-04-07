@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class MassiveRaceTest {
 
-    @DisplayName("테스트A")
+    @DisplayName("2라운드 경주에서 가장 많이 전진한 자동차가 우승한다")
     @Test
     void tA() {
         MassiveRace r = new MassiveRace();
@@ -17,7 +17,7 @@ class MassiveRaceTest {
         assertThat(result).isEqualTo("kim, park가 최종 우승했습니다.");
     }
 
-    @DisplayName("테스트B")
+    @DisplayName("모든 자동차가 같은 거리를 이동하면 전원 우승한다")
     @Test
     void tB() {
         MassiveRace r = new MassiveRace();
@@ -26,7 +26,7 @@ class MassiveRaceTest {
         assertThat(result).isEqualTo("kim, lee, park가 최종 우승했습니다.");
     }
 
-    @DisplayName("테스트C")
+    @DisplayName("자동차가 1대뿐이면 예외가 발생한다")
     @Test
     void tC() {
         MassiveRace r = new MassiveRace();
@@ -34,7 +34,7 @@ class MassiveRaceTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
-    @DisplayName("테스트D")
+    @DisplayName("자동차 이름이 5자를 초과하면 예외가 발생한다")
     @Test
     void tD() {
         MassiveRace r = new MassiveRace();
