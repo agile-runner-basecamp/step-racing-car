@@ -6,36 +6,40 @@ import java.util.Map;
 
 public class BadRacer {
 
-    public boolean doM(int r) {
-        return r >= 4;
+    private static final int MIN_MOVE_VALUE = 4;
+    private static final int MAX_NAME_LENGTH = 5;
+    private static final int INIT_DISTANCE = 0;
+
+    public boolean canMove(int randomValue) {
+        return randomValue >= MIN_MOVE_VALUE;
     }
 
-    public boolean chk(String n) {
-        if (n == null) {
+    public boolean isValidName(String name) {
+        if (name == null) {
             return false;
         }
-        if (n.length() > 5) {
+        if (name.length() > MAX_NAME_LENGTH) {
             return false;
         }
-        if (n.isEmpty()) {
+        if (name.isEmpty()) {
             return false;
         }
         return true;
     }
 
-    public List<String> doW(Map<String, Integer> c) {
-        int m = 0;
-        for (Map.Entry<String, Integer> e : c.entrySet()) {
-            if (e.getValue() > m) {
-                m = e.getValue();
+    public List<String> getWinners(Map<String, Integer> car) {
+        int maxDistance = INIT_DISTANCE;
+        for (Map.Entry<String, Integer> e : car.entrySet()) {
+            if (e.getValue() > maxDistance) {
+                maxDistance = e.getValue();
             }
         }
-        List<String> w = new ArrayList<>();
-        for (Map.Entry<String, Integer> e : c.entrySet()) {
-            if (e.getValue() == m) {
-                w.add(e.getKey());
+        List<String> winners = new ArrayList<>();
+        for (Map.Entry<String, Integer> e : car.entrySet()) {
+            if (e.getValue() == maxDistance) {
+                winners.add(e.getKey());
             }
         }
-        return w;
+        return winners;
     }
 }
