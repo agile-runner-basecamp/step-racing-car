@@ -58,3 +58,4 @@ class CleanRaceTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 }
+
