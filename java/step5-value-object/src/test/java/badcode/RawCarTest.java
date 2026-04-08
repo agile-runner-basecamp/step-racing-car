@@ -12,7 +12,7 @@ class RawCarTest {
     @Test
     void hasName() {
         RawCar car = new RawCar("kim");
-        assertThat(car.getName()).isEqualTo("kim");
+        assertThat(car.getName()).isEqualTo(CarName.of("kim"));
     }
 
     @DisplayName("자동차 이름이 5자를 초과하면 예외가 발생한다")
@@ -34,7 +34,7 @@ class RawCarTest {
     void moveForward() {
         RawCar car = new RawCar("kim");
         car.move(4);
-        assertThat(car.getPosition()).isEqualTo(1);
+        assertThat(car.getPosition()).isEqualTo(Position.from("1"));
     }
 
     @DisplayName("랜덤 값이 3 이하이면 정지한다")
@@ -42,11 +42,18 @@ class RawCarTest {
     void stay() {
         RawCar car = new RawCar("kim");
         car.move(3);
-        assertThat(car.getPosition()).isEqualTo(0);
+        assertThat(car.getPosition()).isEqualTo(Position.from("0"));
     }
 
     // TODO: 원시값을 포장(Value Object)한 뒤 아래 테스트를 추가하세요:
     // - CarName의 동등성(equals) 검증: 같은 이름이면 같은 객체
     // - Position의 increase() 동작 검증
     // - Position이 음수가 될 수 없다는 검증
+
+    // TODO 1
+    @DisplayName("같은 이름이면 같은 객체이다")
+    @Test
+    void carNameEquals() {
+        assertThat(CarName.of("kim")).isEqualTo(CarName.of("kim"));
+    }
 }
