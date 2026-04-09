@@ -6,16 +6,16 @@ public class CarName {
 
     private final String name;
 
-    public CarName(String name) {
+    private CarName(String name) {
         validate(name);
         this.name = name;
     }
 
     public static CarName of(String name) {
-        return new CarName(name);
+        return new CarName(name.trim());
     }
 
-    public void validate(String name) {
+    private void validate(String name) {
 
         if (name == null || name.isEmpty()) {
             throw new IllegalArgumentException("자동차 이름은 비어있을 수 없습니다.");

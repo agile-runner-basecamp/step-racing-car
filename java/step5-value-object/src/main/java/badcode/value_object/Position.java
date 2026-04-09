@@ -6,7 +6,7 @@ public class Position {
 
     private final int position;
 
-    public Position(int position) {
+    private Position(int position) {
         validate(position);
         this.position = position;
     }
@@ -15,7 +15,7 @@ public class Position {
         return new Position(position);
     }
 
-    public void validate(int position) {
+    private void validate(int position) {
 
         if (position < 0) {
             throw new IllegalArgumentException("값이 0 이하일 수 없습니다.");
