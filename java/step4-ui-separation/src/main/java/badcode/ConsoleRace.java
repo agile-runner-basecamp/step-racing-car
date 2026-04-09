@@ -8,7 +8,6 @@ public class ConsoleRace {
     public void run(List<String> names, int rounds, int[] randomValues) {
 
         validateNameCount(names);
-        validateCarNameLength(names);
 
         RaceResult raceResult = play(names, rounds, randomValues);
 
@@ -47,15 +46,6 @@ public class ConsoleRace {
         // "차이름:---------------" 처럼 거리만큼 -가 길어지도록 출력
         cars.getDistanceViews().forEach(System.out::println);
         System.out.println();
-    }
-
-
-    private static void validateCarNameLength(List<String> names) {
-        for (String name : names) {
-            if (name.length() > 5) {
-                throw new IllegalArgumentException("자동차 이름은 5자를 초과할 수 없습니다: " + name);
-            }
-        }
     }
 
     private static void validateNameCount(List<String> names) {
